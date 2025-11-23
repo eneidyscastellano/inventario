@@ -1,0 +1,109 @@
+### Archivo de pruebas HTTP para la API de Inventario
+### Puedes usar este archivo con extensiones como REST Client en VS Code o IntelliJ HTTP Client
+
+### 1. Crear un producto
+POST http://localhost:8081/api/inventario
+Content-Type: application/json
+
+{
+  "nombre": "Laptop Dell Inspiron 15",
+  "descripcion": "Laptop con procesador Intel i5, 8GB RAM, 256GB SSD",
+  "cantidad": 10,
+  "precio": 899.99,
+  "categoria": "Electrónica"
+}
+
+###
+
+### 2. Crear otro producto
+POST http://localhost:8081/api/inventario
+Content-Type: application/json
+
+{
+  "nombre": "Mouse Logitech MX Master",
+  "descripcion": "Mouse inalámbrico ergonómico",
+  "cantidad": 25,
+  "precio": 79.99,
+  "categoria": "Accesorios"
+}
+
+###
+
+### 3. Crear producto con stock bajo
+POST http://localhost:8081/api/inventario
+Content-Type: application/json
+
+{
+  "nombre": "Webcam HD",
+  "descripcion": "Cámara web 1080p",
+  "cantidad": 3,
+  "precio": 49.99,
+  "categoria": "Accesorios"
+}
+
+###
+
+### 4. Obtener todos los productos
+GET http://localhost:8081/api/inventario
+
+###
+
+### 5. Obtener producto por ID (cambiar el ID según corresponda)
+GET http://localhost:8081/api/inventario/1
+
+###
+
+### 6. Actualizar un producto (cambiar el ID según corresponda)
+PUT http://localhost:8081/api/inventario/1
+Content-Type: application/json
+
+{
+  "nombre": "Laptop Dell Inspiron 15 Actualizada",
+  "descripcion": "Laptop con procesador Intel i7, 16GB RAM, 512GB SSD",
+  "cantidad": 15,
+  "precio": 1099.99,
+  "categoria": "Electrónica"
+}
+
+###
+
+### 7. Buscar por nombre exacto
+GET http://localhost:8081/api/inventario/buscar/nombre/Mouse Logitech MX Master
+
+###
+
+### 8. Buscar por categoría
+GET http://localhost:8081/api/inventario/buscar/categoria/Electrónica
+
+###
+
+### 9. Buscar por categoría - Accesorios
+GET http://localhost:8081/api/inventario/buscar/categoria/Accesorios
+
+###
+
+### 10. Buscar productos con stock bajo (cantidad menor a 5)
+GET http://localhost:8081/api/inventario/stock-bajo?cantidad=5
+
+###
+
+### 11. Buscar productos con stock bajo (cantidad menor a 10)
+GET http://localhost:8081/api/inventario/stock-bajo?cantidad=10
+
+###
+
+### 12. Buscar por nombre parcial (búsqueda flexible)
+GET http://localhost:8081/api/inventario/buscar?nombre=laptop
+
+###
+
+### 13. Buscar por nombre parcial - mouse
+GET http://localhost:8081/api/inventario/buscar?nombre=mouse
+
+###
+
+### 14. Eliminar un producto (cambiar el ID según corresponda)
+DELETE http://localhost:8081/api/inventario/1
+
+###
+
